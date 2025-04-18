@@ -27,6 +27,14 @@ env = environ.Env(
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
+# Для работы с сессиями в базе данных
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_NAME = 'sessionid'
+
+# Для локальной разработки (не использовать на продакшн)
+CSRF_COOKIE_SECURE = False  # Отключаем для локальной разработки (не для продакшн)
+SESSION_COOKIE_SECURE = False  # Отключаем для локальной разработки (не для продакшн)
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
