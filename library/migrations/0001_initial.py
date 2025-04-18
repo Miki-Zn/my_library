@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('status', models.CharField(choices=[('New', 'New'), ('In progress', 'In progress'), ('Pending', 'Pending'), ('Blocked', 'Blocked'), ('Done', 'Done')], default='New', max_length=20)),
                 ('deadline', models.DateTimeField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('categories', models.ManyToManyField(to='core.category')),
+                ('categories', models.ManyToManyField(to='library.category')),
             ],
         ),
         migrations.CreateModel(
@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
                 ('status', models.CharField(choices=[('New', 'New'), ('In progress', 'In progress'), ('Pending', 'Pending'), ('Blocked', 'Blocked'), ('Done', 'Done')], default='New', max_length=20)),
                 ('deadline', models.DateTimeField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('task', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='subtasks', to='core.task')),
+                ('task', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='subtasks', to='library.task')),
             ],
         ),
     ]
